@@ -3,7 +3,7 @@
   "appName": "Waguri",
   "webDir": "www",
   "server": {
-    "url": "https://CAMBIA-ESTO-POR-TU-DOMINIO",
+    "url": "https://waguri-app.onrender.com",
     "cleartext": false
   }
 }
