@@ -9,9 +9,9 @@
     "dev": "node --watch server.js"
   },
   "engines": {
-    "node": ">=20"
-  },
-  "dependencies": {
+  "node": "22.x"
+},
+"dependencies": {
     "bcryptjs": "^2.4.3",
     "better-sqlite3": "^11.8.1",
     "connect-sqlite3": "^0.9.16",
