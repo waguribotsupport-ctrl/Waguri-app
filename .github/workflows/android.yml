@@ -1,0 +1,51 @@
+name: Construir APK Waguri
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "capacitor.config.json"
+      - ".github/workflows/android.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar proyecto
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Instalar Capacitor
+        run: |
+          npm install
+          npm install @capacitor/core@6 @capacitor/cli@6 @capacitor/android@6
+
+      - name: Preparar aplicación
+        run: |
+          mkdir -p www
+          echo "<html><body>Waguri</body></html>" > www/index.html
+          npx cap add android
+          npx cap sync android
+
+      - name: Construir APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Guardar APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Waguri-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
