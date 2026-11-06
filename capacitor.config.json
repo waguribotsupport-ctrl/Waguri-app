@@ -1,0 +1,9 @@
+{
+  "appId": "app.waguri.bot",
+  "appName": "Waguri",
+  "webDir": "www",
+  "server": {
+    "url": "https://CAMBIA-ESTO-POR-TU-DOMINIO",
+    "cleartext": false
+  }
+}

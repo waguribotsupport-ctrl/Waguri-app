@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080912">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="description" content="Waguri — panel de control para tu bot de WhatsApp">
+  <title>Waguri — Control Center</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">W</span><span>Waguri<span class="accent">.</span></span></a>
+    <div class="top-right"><span class="status-dot"></span><span class="tiny">CONTROL CENTER</span><button id="menuBtn" class="icon-btn" aria-label="Abrir menú">☰</button></div>
+  </header>
+
+  <main>
+    <section id="landing" class="hero">
+      <div class="eyebrow"><span class="pulse"></span> TU BOT, TU CONTROL</div>
+      <h1>Administra tu bot<br>de WhatsApp con<br><span class="gradient">Waguri.</span></h1>
+      <p class="lead">Un panel moderno para organizar tus bots, consultar su estado y gestionar tu espacio desde cualquier dispositivo.</p>
+      <div class="actions"><button class="btn primary" data-view="register">✦ &nbsp; Crear cuenta</button><button class="btn secondary" data-view="login">Iniciar sesión</button></div>
+      <div class="hero-grid">
+        <div class="stat"><strong>24/7</strong><span>DISEÑADO PARA ESTAR DISPONIBLE</span></div>
+        <div class="stat"><strong>Seguro</strong><span>CONTRASEÑAS CIFRADAS</span></div>
+        <div class="stat"><strong>Responsive</strong><span>MÓVIL Y ESCRITORIO</span></div>
+      </div>
+    </section>
+
+    <section id="auth" class="auth-panel hidden">
+      <button class="back-link" id="backHome">← Volver al inicio</button>
+      <div class="panel-head"><span class="eyebrow">WAGURI ACCOUNT</span><h2 id="authTitle">Crear tu cuenta</h2><p id="authSubtitle">Tu centro de control empieza aquí.</p></div>
+      <form id="authForm">
+        <div id="usernameWrap" class="field"><label for="username">Nombre de usuario</label><input id="username" name="username" autocomplete="username" minlength="3" maxlength="24" placeholder="tu_usuario"></div>
+        <div id="emailWrap" class="field"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com"></div>
+        <div id="identifierWrap" class="field hidden"><label for="identifier">Usuario o correo</label><input id="identifier" name="identifier" autocomplete="username" placeholder="tu_usuario"></div>
+        <div class="field"><label for="password">Contraseña</label><input id="password" name="password" type="password" autocomplete="new-password" minlength="10" required placeholder="Mínimo 10 caracteres"></div>
+        <button class="btn primary full" id="authSubmit" type="submit">Crear cuenta</button>
+        <p class="switch-auth" id="switchAuth"></p><p id="authMessage" class="message" role="status"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" class="dashboard hidden">
+      <div class="dash-head"><div><div class="eyebrow">WAGURI / DASHBOARD</div><h2>Tu espacio de control</h2><p id="welcomeText" class="muted"></p></div><button id="logoutBtn" class="btn secondary small">Cerrar sesión</button></div>
+      <div class="stats-row">
+        <article class="metric"><span>BOTS REGISTRADOS</span><strong id="totalBots">0</strong></article>
+        <article class="metric"><span>EN CONEXIÓN</span><strong id="connectedBots">0</strong></article>
+        <article class="metric"><span>PENDIENTES</span><strong id="pendingBots">0</strong></article>
+      </div>
+      <div class="section-head"><h3>Mis bots</h3><span class="tiny">GESTIÓN</span></div>
+      <form id="botForm" class="bot-form"><div class="field"><label for="botName">Nombre del bot</label><input id="botName" required minlength="2" maxlength="40" placeholder="Ej. Waguri Principal"></div><div class="field"><label for="botPhone">Teléfono (opcional)</label><input id="botPhone" maxlength="24" placeholder="Código de país + número"></div><button class="btn primary" type="submit">＋ Añadir bot</button></form>
+      <p id="botMessage" class="message" role="status"></p>
+      <div id="botList" class="bot-list"></div>
+      <div id="qrPanel" class="qr-panel hidden">
+        <button id="closeQr" class="back-link">← Cerrar conexión</button>
+        <h3 id="qrTitle">Vincular WhatsApp</h3>
+        <p class="muted">En WhatsApp, abre Dispositivos vinculados → Vincular un dispositivo y escanea este QR. No compartas el QR con nadie.</p>
+        <div id="qrContent" class="qr-content"><p>Esperando el código QR…</p></div>
+        <p id="qrStatus" class="message" role="status"></p>
+      </div>
+      <div class="notice"><strong>Importante:</strong> el motor de WhatsApp corre en el servidor remoto. Nunca compartas tu QR ni las credenciales de sesión. Esta es una primera versión y todavía necesita endurecimiento antes de abrirla al público.</div>
+    </section>
+
+    <section class="feature-section" id="features">
+      <div class="eyebrow">HECHO PARA TU COMUNIDAD</div><h2>Todo en un solo lugar.</h2>
+      <div class="features">
+        <article class="feature-card"><div class="feature-icon cyan">↗</div><h3>Panel centralizado</h3><p>Consulta tus bots y su estado desde una sola pantalla.</p></article>
+        <article class="feature-card"><div class="feature-icon purple">◇</div><h3>Cuentas protegidas</h3><p>Contraseñas con hash y sesiones de servidor.</p></article>
+        <article class="feature-card"><div class="feature-icon pink">⌘</div><h3>Diseño adaptable</h3><p>Interfaz oscura con acentos neón para móvil y escritorio.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">W</span><span>Waguri<span class="accent">.</span></span></a><span>CONTROL CENTER · PROYECTO INICIAL</span></footer>
+  <script src="/app.js" defer></script>
+</body>
+</html>
